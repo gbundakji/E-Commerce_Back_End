@@ -8,14 +8,15 @@ router.get('/', async (req, res) => {
   // be sure to include its associated Product data
   try {
     const tagData = Tag.findAll({
-      indlude:[
-        {
-          model: Product,
-          attributes: 'product_name'
-        }
-      ]
+      attributes: ['id', 'tag_name'],
+        include: [
+            {
+                model: Product,
+                attributes: ['id', 'product_name', 'price', 'stock', 'category_id']
+            }
+        ]
     });
-    res.status(200).json(productData);
+    res.status(200).json(tagData);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -26,15 +27,15 @@ router.get('/:id', async (req, res) => {
   // be sure to include its associated Product data
   try {
     const tagData = await Tag.findOne(req.params.id, {
-      include: [
+      where: {
+        id: req.params.id
+    },
+    attributes: ['id', 'tag_name'],
+    include: [
         {
-        model: Product,
-        attributes: ['product_name']
-      },
-      {
-        model: ProductTag,
-        attributes: 'product_tag'
-      }
+            model: Product,
+            attributes: ['id', 'product_name', 'price', 'stock', 'category_id']
+        }
     ]
     });
     if (!tagData) {
@@ -50,7 +51,9 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
   // create a new tag
   try {
-    const tagData = await Tag.create(req.body);
+    const tagData = await Tag.create({
+      tag_name: req.body.tag_name
+    });
     req.status(200).json(tagData);
   } catch (err) {
     res.status(400).json(err);
