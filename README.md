@@ -10,15 +10,11 @@ This application was created for an internet retail company. It allows the manag
 
 ## Installation🚀
 
-In order to run this application you must run the command  <code>npm i</code> to install the necessary dependencies. Confirm that the MySQL server is tunred on and run <code>CREATE DATABASE ecommerce_db;</code> to create the database. Then return to your console and run <code>node seeds/index.js</code> to seed the database. Then run <code>npm start</code> and navigate to http://localhost:3001/ in your browser.
+In order to run this application you must run the command  <code>npm i</code> to install the necessary dependencies. Confirm that the MySQL server is tunred on and run <code>CREATE DATABASE ecommerce_db;</code> to create the database. Then return to your console and run <code>node seeds/index.js</code> to seed the database. Then run <code>npm start</code> and navigate to http://localhost:3001/ in your browser. I will be using Insomnia to test all of the routes for this application. Insomnia will also need to be installed to your machine by going to this website --> https://insomnia.rest/.
 
 ## Visuals📷
 
-
-
-## Credit 
-
-
+https://drive.google.com/file/d/1xY55LJQuR1LxECWYY5B1yUyuEJSl9JJN/view
 
 ## License 🔑
 
